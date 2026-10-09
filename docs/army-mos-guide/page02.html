@@ -11,20 +11,24 @@
     --text:#e6ecf5; --muted:#8b97b0; --muted2:#5c6a86;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
+  html{background:#070a14;}
   body{
     background:radial-gradient(ellipse at top,#0d1326 0%,#070a14 60%);
     color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;
-    width:1300px; padding:0 0 60px;
+    width:1300px; max-width:100%; padding:0 0 60px; margin:0 auto;
   }
   .nav{
+    position:sticky; top:0; z-index:10;
     display:flex; align-items:center; justify-content:space-between;
     padding:22px 48px; border-bottom:1px solid var(--border);
-    background:rgba(10,14,26,0.9);
+    background:rgba(10,14,26,0.92); backdrop-filter:blur(6px);
   }
   .nav-brand{display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.08em; font-size:13px; color:var(--cyan);}
   .nav-dot{width:7px;height:7px;border-radius:50%;background:var(--cyan); box-shadow:0 0 8px var(--cyan);}
-  .nav-links{display:flex; gap:28px; font-size:13px; color:var(--muted);}
-  .nav-links span.active{color:var(--text); font-weight:600;}
+  .nav-links{display:flex; gap:28px; font-size:13px;}
+  .nav-links a{color:var(--muted); text-decoration:none; transition:color .15s;}
+  .nav-links a:hover{color:var(--cyan);}
+  .nav-links a.active{color:var(--text); font-weight:600;}
   .pill{background:rgba(34,211,238,0.12); border:1px solid var(--cyan-dim); color:var(--cyan); font-size:12px; padding:6px 14px; border-radius:999px; font-weight:600;}
 
   .hero{padding:44px 48px 28px; border-bottom:1px solid var(--border);}
@@ -112,7 +116,7 @@
 
   <div class="nav">
     <div class="nav-brand"><span class="nav-dot"></span>US ARMY INTEL &amp; CYBER</div>
-    <div class="nav-links"><span>Intro</span><span>MOS Matrix</span><span class="active">Vetting</span><span>Guideline B</span><span>Training</span><span>Salary</span></div>
+    <div class="nav-links"><a href="./index.html">Intro</a><a href="./index.html">MOS Matrix</a><a href="#vetting-funnel" class="active">Vetting</a><a href="#guideline-b">Guideline B</a><a href="./page03.html#training">Training</a><a href="./page03.html#roi">Salary</a></div>
     <div class="pill">MOS Quiz</div>
   </div>
 
@@ -145,7 +149,7 @@
     </div>
   </div>
 
-  <div class="section">
+  <div class="section" id="vetting-funnel">
     <div class="section-head"><div class="section-num">3</div><div class="section-title">The Vetting Funnel</div></div>
     <div class="section-sub">From enlistment pool to TS/SCI — each tier narrows the field, and foreign-contact disclosures are the most common reason for fallout.</div>
     <div class="funnel-wrap">
@@ -221,7 +225,7 @@
     </div>
   </div>
 
-  <div class="section">
+  <div class="section" id="guideline-b">
     <div class="section-head"><div class="section-num">6</div><div class="section-title">Guideline B — What Triggers Scrutiny</div></div>
     <div class="section-sub">Disqualifying Conditions (DC) — the mere existence of these facts opens a review, regardless of actual loyalty.</div>
     <div class="cards3">

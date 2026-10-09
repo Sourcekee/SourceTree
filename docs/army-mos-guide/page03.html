@@ -11,16 +11,19 @@
     --text:#e6ecf5; --muted:#8b97b0; --muted2:#5c6a86;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
+  html{background:#070a14;}
   body{
     background:radial-gradient(ellipse at top,#0d1326 0%,#070a14 60%);
     color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;
-    width:1300px; padding:0 0 60px;
+    width:1300px; max-width:100%; padding:0 0 60px; margin:0 auto;
   }
-  .nav{display:flex; align-items:center; justify-content:space-between; padding:22px 48px; border-bottom:1px solid var(--border); background:rgba(10,14,26,0.9);}
+  .nav{position:sticky; top:0; z-index:10; display:flex; align-items:center; justify-content:space-between; padding:22px 48px; border-bottom:1px solid var(--border); background:rgba(10,14,26,0.92); backdrop-filter:blur(6px);}
   .nav-brand{display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.08em; font-size:13px; color:var(--cyan);}
   .nav-dot{width:7px;height:7px;border-radius:50%;background:var(--cyan); box-shadow:0 0 8px var(--cyan);}
-  .nav-links{display:flex; gap:28px; font-size:13px; color:var(--muted);}
-  .nav-links span.active{color:var(--text); font-weight:600;}
+  .nav-links{display:flex; gap:28px; font-size:13px;}
+  .nav-links a{color:var(--muted); text-decoration:none; transition:color .15s;}
+  .nav-links a:hover{color:var(--cyan);}
+  .nav-links a.active{color:var(--text); font-weight:600;}
   .pill{background:rgba(34,211,238,0.12); border:1px solid var(--cyan-dim); color:var(--cyan); font-size:12px; padding:6px 14px; border-radius:999px; font-weight:600;}
 
   .hero{padding:44px 48px 28px; border-bottom:1px solid var(--border);}
@@ -84,7 +87,7 @@
 
   <div class="nav">
     <div class="nav-brand"><span class="nav-dot"></span>US ARMY INTEL &amp; CYBER</div>
-    <div class="nav-links"><span>Intro</span><span>MOS Matrix</span><span>Vetting</span><span>Guideline B</span><span class="active">Training &amp; ROI</span><span>Salary</span></div>
+    <div class="nav-links"><a href="./index.html">Intro</a><a href="./index.html">MOS Matrix</a><a href="./page02.html#vetting-funnel">Vetting</a><a href="./page02.html#guideline-b">Guideline B</a><a href="#training" class="active">Training &amp; ROI</a><a href="#roi">Salary</a></div>
     <div class="pill">MOS Quiz</div>
   </div>
 
@@ -94,7 +97,7 @@
     <p>Once TS/SCI clears, the remaining path is AIT attrition dynamics, the Warrant Officer track for soldiers who want to stay technical, and what the clearance is actually worth on the civilian side.</p>
   </div>
 
-  <div class="section">
+  <div class="section" id="training">
     <div class="section-head"><div class="section-num">8</div><div class="section-title">Training Reality — Verified vs. Open-Source Claims</div></div>
     <div class="section-sub">AIT attrition numbers circulate widely online. Here's what independently verified against primary sources vs. what's forum lore.</div>
     <div class="split">
@@ -135,7 +138,7 @@
     </div>
   </div>
 
-  <div class="section">
+  <div class="section" id="roi">
     <div class="section-head"><div class="section-num">10</div><div class="section-title">Civilian ROI — What the Clearance Is Actually Worth</div></div>
     <div class="section-sub">Corrected from the original draft's flat "tens of thousands" framing using current ClearanceJobs compensation data.</div>
     <div class="roi-wrap">
