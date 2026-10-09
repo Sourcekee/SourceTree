@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>US Army Intel &amp; Cyber — Page 03: Training Reality, Warrant Officer Path, ROI</title>
+<style>
+  :root{
+    --bg:#0a0e1a; --panel:#0f1424; --panel2:#121a2e; --border:#1e2a44;
+    --cyan:#22d3ee; --cyan-dim:#0e7490; --teal:#2dd4bf; --amber:#fbbf24;
+    --red:#f87171; --green:#34d399; --purple:#a78bfa;
+    --text:#e6ecf5; --muted:#8b97b0; --muted2:#5c6a86;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    background:radial-gradient(ellipse at top,#0d1326 0%,#070a14 60%);
+    color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;
+    width:1300px; padding:0 0 60px;
+  }
+  .nav{display:flex; align-items:center; justify-content:space-between; padding:22px 48px; border-bottom:1px solid var(--border); background:rgba(10,14,26,0.9);}
+  .nav-brand{display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.08em; font-size:13px; color:var(--cyan);}
+  .nav-dot{width:7px;height:7px;border-radius:50%;background:var(--cyan); box-shadow:0 0 8px var(--cyan);}
+  .nav-links{display:flex; gap:28px; font-size:13px; color:var(--muted);}
+  .nav-links span.active{color:var(--text); font-weight:600;}
+  .pill{background:rgba(34,211,238,0.12); border:1px solid var(--cyan-dim); color:var(--cyan); font-size:12px; padding:6px 14px; border-radius:999px; font-weight:600;}
+
+  .hero{padding:44px 48px 28px; border-bottom:1px solid var(--border);}
+  .eyebrow{display:inline-flex; align-items:center; gap:8px; background:rgba(45,212,191,.12); border:1px solid #1d6e63; color:var(--teal); font-size:11px; font-weight:700; letter-spacing:.1em; padding:6px 14px; border-radius:999px; margin-bottom:18px;}
+  .hero h1{font-size:38px; font-weight:800; line-height:1.15; max-width:900px;}
+  .hero h1 .accent{color:var(--teal);}
+  .hero p{color:var(--muted); font-size:15px; max-width:760px; margin-top:12px; line-height:1.6;}
+
+  .section{padding:32px 48px;}
+  .section-head{display:flex; align-items:baseline; gap:14px; margin-bottom:8px;}
+  .section-num{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--teal),var(--cyan)); display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;color:#061018;}
+  .section-title{font-size:21px; font-weight:700;}
+  .section-sub{color:var(--muted); font-size:13px; margin-left:44px; margin-bottom:24px;}
+
+  /* TRAINING REALITY SPLIT */
+  .split{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+  .panel{background:var(--panel); border:1px solid var(--border); border-radius:14px; padding:22px;}
+  .panel h4{font-size:14px; margin-bottom:10px; display:flex; align-items:center; gap:8px;}
+  .tag{font-size:10px; font-weight:700; padding:3px 9px; border-radius:999px; letter-spacing:.05em;}
+  .tag.verified{background:rgba(52,211,153,.15); color:var(--green); border:1px solid #1a6b4d;}
+  .tag.unconfirmed{background:rgba(251,191,36,.15); color:var(--amber); border:1px solid #7a5a0e;}
+  .panel ul{margin-top:10px; padding-left:18px; color:var(--muted); font-size:12.5px; line-height:1.9;}
+  .panel ul li b{color:var(--text);}
+
+  /* WARRANT OFFICER ROADMAP */
+  .wo-track{display:flex; align-items:center; gap:0; position:relative; margin-top:10px;}
+  .wo-node{flex:1; display:flex; flex-direction:column; align-items:center; text-align:center; position:relative; padding:0 8px;}
+  .wo-node:not(:last-child):after{content:"";position:absolute; top:28px; right:-8%; width:16%; height:2px; background:var(--border);}
+  .wo-badge{width:56px;height:56px;border-radius:50%; background:var(--panel2); border:2px solid var(--purple); display:flex;align-items:center;justify-content:center; font-weight:800; font-size:13px; color:var(--purple); margin-bottom:10px;}
+  .wo-node h5{font-size:12.5px; margin-bottom:4px;}
+  .wo-node p{font-size:11px; color:var(--muted2); line-height:1.5;}
+
+  .req-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:20px;}
+  .req{background:var(--panel2); border:1px solid var(--border); border-radius:10px; padding:12px 14px; font-size:11.5px; color:var(--muted);}
+  .req b{color:var(--text); display:block; font-size:12px; margin-bottom:3px;}
+
+  /* ROI BARS */
+  .roi-wrap{background:var(--panel); border:1px solid var(--border); border-radius:14px; padding:24px;}
+  .roi-row{display:grid; grid-template-columns:200px 1fr 90px; align-items:center; gap:14px; margin-bottom:14px;}
+  .roi-label{font-size:12.5px; color:var(--muted);}
+  .roi-track{height:16px; background:var(--panel2); border-radius:8px; overflow:hidden;}
+  .roi-fill{height:100%; border-radius:8px; background:linear-gradient(90deg,var(--teal),var(--cyan));}
+  .roi-val{font-size:13px; font-weight:700; text-align:right; color:var(--teal);}
+
+  .callout{display:flex; gap:14px; background:rgba(45,212,191,.06); border:1px solid #1d6e63; border-radius:14px; padding:18px 20px; margin-top:22px;}
+  .callout .icon{width:34px;height:34px;flex:none;border-radius:50%; background:rgba(45,212,191,.18); display:flex;align-items:center;justify-content:center;}
+  .callout .icon svg{width:18px;height:18px;stroke:var(--teal);fill:none;}
+  .callout h5{font-size:13px; color:var(--teal); margin-bottom:4px;}
+  .callout p{font-size:12.5px; color:var(--muted); line-height:1.6;}
+
+  .verdict{background:linear-gradient(135deg,rgba(167,139,250,.1),rgba(34,211,238,.06)); border:1px solid #3b2f63; border-radius:16px; padding:28px 32px; margin:32px 48px 0;}
+  .verdict h3{font-size:18px; margin-bottom:12px; color:var(--purple);}
+  .verdict-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:16px;}
+  .verdict-item{font-size:12.5px; color:var(--muted); line-height:1.6;}
+  .verdict-item b{color:var(--text); display:block; font-size:13px; margin-bottom:4px;}
+
+  .footer-note{padding:24px 48px; color:var(--muted2); font-size:11px; border-top:1px solid var(--border); display:flex; justify-content:space-between; margin-top:20px;}
+</style>
+</head>
+<body>
+
+  <div class="nav">
+    <div class="nav-brand"><span class="nav-dot"></span>US ARMY INTEL &amp; CYBER</div>
+    <div class="nav-links"><span>Intro</span><span>MOS Matrix</span><span>Vetting</span><span>Guideline B</span><span class="active">Training &amp; ROI</span><span>Salary</span></div>
+    <div class="pill">MOS Quiz</div>
+  </div>
+
+  <div class="hero">
+    <div class="eyebrow">⬤ PART V–VII &nbsp;·&nbsp; TRAINING REALITY, WARRANT OFFICER PATH, ROI</div>
+    <h1>Past the Gatekeeper: <span class="accent">Training, Rank, and Payoff</span></h1>
+    <p>Once TS/SCI clears, the remaining path is AIT attrition dynamics, the Warrant Officer track for soldiers who want to stay technical, and what the clearance is actually worth on the civilian side.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><div class="section-num">8</div><div class="section-title">Training Reality — Verified vs. Open-Source Claims</div></div>
+    <div class="section-sub">AIT attrition numbers circulate widely online. Here's what independently verified against primary sources vs. what's forum lore.</div>
+    <div class="split">
+      <div class="panel">
+        <h4>🟢 17C / Cyber School — Fort Eisenhower <span class="tag verified">Solid</span></h4>
+        <ul>
+          <li>Renamed from Fort Gordon <b>Oct 27, 2023</b> — current.</li>
+          <li><b>Oct 2024 &amp; Feb 2025:</b> ARCYBER/USCYBERCOM approved 17C AIT + 170A WOBC as "Alternate Training Solutions" for DoD 8140 Host/Network Analyst certs — a real, dateable pipeline streamlining.</li>
+          <li>Two-phase structure (foundational IT → offensive/defensive methods) confirmed.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h4>🟠 Attrition Figures <span class="tag unconfirmed">Unconfirmed</span></h4>
+        <ul>
+          <li>"JCAC 85% peak attrition" (old Corry Station model) — widely repeated, <b>not traced to a Navy/DTIC document</b>.</li>
+          <li>"&lt;5% current Fort Eisenhower attrition" and "4 failures of 14 tests" rule — <b>no official source found</b>; plausible direction, unconfirmed specifics.</li>
+          <li>AIT week-counts (17C: 36 vs ~45wk; 35N: 24 vs up to 52wk incl. NSA cert) — <b>contested across sources</b>, verify with a recruiter before planning around them.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><div class="section-num">9</div><div class="section-title">The Warrant Officer Track</div></div>
+    <div class="section-sub">For enlisted soldiers who want to stay technical rather than move into command — the path from 17C to 170A, or 35F/G/N into the 350/352 series.</div>
+    <div class="wo-track">
+      <div class="wo-node"><div class="wo-badge">E-5</div><h5>Sergeant</h5><p>Eligible to submit packet</p></div>
+      <div class="wo-node"><div class="wo-badge">ALC</div><h5>Advanced Leader Course</h5><p>Completed</p></div>
+      <div class="wo-node"><div class="wo-badge">TS</div><h5>Full TS/SCI</h5><p>Fully adjudicated</p></div>
+      <div class="wo-node"><div class="wo-badge">CERT</div><h5>8140 IAT/IAM II–III</h5><p>Security+ / CASP+ / CISSP</p></div>
+      <div class="wo-node"><div class="wo-badge">170A</div><h5>Cyber Warfare Technician</h5><p>Or 350F/350G/352N for MI</p></div>
+    </div>
+    <div class="req-grid">
+      <div class="req"><b>170A</b>Cyber Warfare Technician — DCO/OCO advisory, capability validation</div>
+      <div class="req"><b>170D</b>Cyber Capability Developer — software/tool engineering track</div>
+      <div class="req"><b>170B</b>Electromagnetic Warfare Technician</div>
+      <div class="req"><b>350F / 350G / 352N</b>MI technician tracks for 35F / 35G / 35N feeders</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><div class="section-num">10</div><div class="section-title">Civilian ROI — What the Clearance Is Actually Worth</div></div>
+    <div class="section-sub">Corrected from the original draft's flat "tens of thousands" framing using current ClearanceJobs compensation data.</div>
+    <div class="roi-wrap">
+      <div class="roi-row"><div class="roi-label">TS/SCI premium (baseline)</div><div class="roi-track"><div class="roi-fill" style="width:55%"></div></div><div class="roi-val">$30–45K</div></div>
+      <div class="roi-row"><div class="roi-label">+ CI Polygraph, mid-career</div><div class="roi-track"><div class="roi-fill" style="width:75%"></div></div><div class="roi-val">$40–60K</div></div>
+      <div class="roi-row"><div class="roi-label">SOC Analyst / IR (17C track)</div><div class="roi-track"><div class="roi-fill" style="width:60%"></div></div><div class="roi-val">$75–110K</div></div>
+      <div class="roi-row"><div class="roi-label">Threat Intel / IR Specialist</div><div class="roi-track"><div class="roi-fill" style="width:78%"></div></div><div class="roi-val">$95–140K</div></div>
+      <div class="roi-row"><div class="roi-label">Penetration Tester</div><div class="roi-track"><div class="roi-fill" style="width:92%"></div></div><div class="roi-val">$100–160K</div></div>
+    </div>
+    <div class="callout">
+      <div class="icon"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
+      <div>
+        <h5>Corrected figure</h5>
+        <p>The original draft said clearance sponsorship takes a flat "12-to-18-month" lead time and the premium is worth "tens of thousands." Current DCSA FY2024 median is closer to <b>8–18 months</b>, and the premium is better stated as <b>$30–60K</b>, rising with a CI poly and seniority — both corrected above.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <h3>Bottom Line for a Candidate with Foreign-National Parents</h3>
+    <p style="color:var(--muted); font-size:13px; line-height:1.6;">The cognitive bar (ASVAB, ICTL) and training rigor are real but surmountable. The actual hurdle is the Tier 5 / Guideline B process — treat it as a documentation and disclosure strategy, not an afterthought.</p>
+    <div class="verdict-grid">
+      <div class="verdict-item"><b>Best for computer science strength</b>17C — highest post-service ROI, fastest-growing DoD domain, but the longest/most contested AIT pipeline.</div>
+      <div class="verdict-item"><b>Best for analytical/briefing strength</b>35F — broadest exposure across the intel community, shortest AIT.</div>
+      <div class="verdict-item"><b>Best for spatial/signal strength</b>35G / 35N — deep technical specialization, verify current training site/length with a recruiter.</div>
+      <div class="verdict-item"><b>Non-negotiable prep, any MOS</b>Financial independence from foreign parents, full SF-86 disclosure, resolve dual-citizenship/passport status before enlistment.</div>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    <span>Source: 00-inbox/US-Army-MOS-Comparison.md — independently verified 2026-10-09</span>
+    <span>Page 03 of 03 · US Army Intel &amp; Cyber Pathway Guide</span>
+  </div>
+
+</body>
+</html>
